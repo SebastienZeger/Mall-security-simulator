@@ -34,7 +34,14 @@ public class RatTrapQuest : MonoBehaviour
 
     public static int Count()
     {
-        countRatTrap++;
+        if (QuestManager.LoadBool(QuestManager.boolEndKeyRatTrap))
+        {
+            countRatTrap = 0;
+        }
+        else
+        {
+            countRatTrap++;
+        }
         return countRatTrap;
     }
 }

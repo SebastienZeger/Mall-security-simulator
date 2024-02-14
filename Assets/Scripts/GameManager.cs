@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeMessage;
 
     private bool _reset = false;
+    private bool _sendMessage = true;
 
     void Start()
     {
@@ -51,26 +52,40 @@ public class GameManager : MonoBehaviour
 
     void ResetLevel()
     {
-        StartCoroutine(ShowRandomResetMessage());
+        if (_sendMessage)
+        {
+            StartCoroutine(ShowRandomResetMessage());
+        }
+        
         if (_reset)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            StoresQuest.countStore = 0;
-            RatTrapQuest.countRatTrap = 0;
-            ToiletteQuest.countToilette = 0;
-            BadGuard.sucess = false;
+            StopCoroutine(ShowRandomResetMessage());
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ResetScore();
             _reset = false;
         }
+    }
+
+    void ResetScore()
+    {
+        StoresQuest.countStore = 0;
+        RatTrapQuest.countRatTrap = 0;
+        ToiletteQuest.countToilette = 0;
+        BadGuard.sucess = false;
+        _sendMessage = true;
     }
     
     IEnumerator ShowRandomResetMessage()
     {
-        
-        int randomIndex = Random.Range(0, resetMessages.Count);
-        string randomMessage = resetMessages[randomIndex];
-        randomMessageText.text = randomMessage;
-        yield return new WaitForSeconds(timeMessage);
-        _reset = true;
-        randomMessageText.text = "";
+        while (_sendMessage)
+        {
+            int randomIndex = Random.Range(0, resetMessages.Count);
+            string randomMessage = resetMessages[randomIndex];
+            randomMessageText.text = randomMessage;
+            _sendMessage = false;
+            yield return new WaitForSeconds(timeMessage);
+            randomMessageText.text = "";
+            _reset = true;
+        }
     }
 }
