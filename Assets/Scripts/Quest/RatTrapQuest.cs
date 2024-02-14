@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class RatTrapQuest : MonoBehaviour
 {
-    public float maxDistance = 2f;
+    [SerializeField] float maxDistance = 2f;
+    [SerializeField] GameObject interactionIndicator;
 
     public static int countRatTrap;
-    public GameObject interactionIndicator;
+    
 
     void Update()
     {
