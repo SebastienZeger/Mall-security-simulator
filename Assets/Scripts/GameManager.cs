@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float timerDuration = 120f; 
-    [SerializeField] GameObject guard; 
+    //[SerializeField] GameObject guard; 
     private float timer;
 
     void Start()
@@ -33,13 +33,16 @@ public class GameManager : MonoBehaviour
     {
         if (StoresQuest.countStore == 5 || RatTrapQuest.countRatTrap == 2 || ToiletteQuest.countToilette == 1)
         {
-             
-        }
-        return true;
+            return true;
+        } return false;
+        
     }
 
     void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StoresQuest.countStore = 0;
+        RatTrapQuest.countRatTrap = 0;
+        ToiletteQuest.countToilette = 0;
     }
 }
