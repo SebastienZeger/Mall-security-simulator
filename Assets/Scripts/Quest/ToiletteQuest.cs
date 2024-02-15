@@ -18,7 +18,14 @@ public class ToiletteQuest : MonoBehaviour
     
     public static int Count()
     {
-        countToilette = 1;
+        if (QuestManager.LoadBool(QuestManager.boolEndKeyToilette))
+        {
+            countToilette = 0;
+        }
+        else
+        {
+            countToilette = 1;
+        }
         return countToilette;
     }
 }

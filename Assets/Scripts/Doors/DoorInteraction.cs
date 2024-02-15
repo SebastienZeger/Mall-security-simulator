@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
 {
-    public int doorID;
-    public ChooseDoor ChooseDoor;
+    [SerializeField] int doorID;
+    [SerializeField] ChooseDoor ChooseDoor;
 
     void OnTriggerEnter(Collider other)
     {

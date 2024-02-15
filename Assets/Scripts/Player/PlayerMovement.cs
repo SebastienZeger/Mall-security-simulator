@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private GameObject spherePos;
     private bool isGrounded = true;
-    public float groundDrag;
+    [SerializeField] float groundDrag;
     
     
     private float horizontalInput;
