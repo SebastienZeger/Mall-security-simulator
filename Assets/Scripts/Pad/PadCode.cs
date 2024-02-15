@@ -20,9 +20,12 @@ public class PadCode : MonoBehaviour
 
     private bool _resetSaisi;
 
+    private InteractPad _interactPad;
+
     void Start()
     {
         //_audioSource = GetComponent<AudioSource>();
+        _interactPad = FindObjectOfType<InteractPad>();
     }
     
     void Update()
@@ -98,6 +101,7 @@ public class PadCode : MonoBehaviour
             pinPad.SetActive(true);
             codeText.color = Color.green;
             openDoor();
+            _interactPad.GetComponent<InteractPad>().GoodPin();
         }
         else if (saisi != code)
         {

@@ -4,7 +4,7 @@ public class ChooseDoor : MonoBehaviour
 {
     [SerializeField] int correctDoor = 2;
     [SerializeField] GameObject TpPos;
-    
+
     public void Interact(int chosenDoor)
     {
         if (chosenDoor == correctDoor)
@@ -23,5 +23,6 @@ public class ChooseDoor : MonoBehaviour
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = TpPos.transform.position;
+
     }
 }

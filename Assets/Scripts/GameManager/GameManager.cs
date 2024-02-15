@@ -13,13 +13,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<string> resetMessages;
     [SerializeField] TextMeshProUGUI randomMessageText;
     [SerializeField] private float timeMessage;
+    public GameObject _videoScreen;
 
     private bool _reset = false;
     private bool _sendMessage = true;
 
+    private VideoManager _videoManager;
+    private PlayerMovement _playerMovement;
+    private PlayerCam _playerCam;
+
     void Start()
     {
         timer = timerDuration;
+        _videoManager = FindObjectOfType<VideoManager>();
+        _playerMovement = FindObjectOfType<PlayerMovement>();
+        _playerCam = FindObjectOfType<PlayerCam>();
     }
 
     void Update()
@@ -54,13 +62,17 @@ public class GameManager : MonoBehaviour
     {
         if (_sendMessage)
         {
+            _playerCam.enabled = false;
+            _playerMovement.enabled = false;
             StartCoroutine(ShowRandomResetMessage());
         }
         
         if (_reset)
         {
+            _videoScreen.SetActive(true);
+            _videoManager.PlayRandomVideo();
             StopCoroutine(ShowRandomResetMessage());
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             ResetScore();
             _reset = false;
         }
@@ -71,6 +83,7 @@ public class GameManager : MonoBehaviour
         StoresQuest.countStore = 0;
         RatTrapQuest.countRatTrap = 0;
         ToiletteQuest.countToilette = 0;
+        SecurityGuardQuest.countGuard = 0;
         BadGuard.sucess = false;
         _sendMessage = true;
     }

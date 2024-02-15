@@ -34,7 +34,15 @@ public class StoresQuest : MonoBehaviour
 
     public static int Count()
     {
-        countStore++;
+        if (QuestManager.LoadBool(QuestManager.boolEndKeyStore))
+        {
+            countStore = 0;
+        }
+        else
+        {
+            countStore++;
+        }
+        
         return countStore;
     }
 }

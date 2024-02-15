@@ -9,6 +9,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ratTextQuest;
     [SerializeField] private TextMeshProUGUI toiletteTextQuest;
     [SerializeField] private TextMeshProUGUI storeTextQuest;
+    [SerializeField] private TextMeshProUGUI guardTextQuest;
     
     [SerializeField] private TextMeshProUGUI ratTextQuestGlitch;
     [SerializeField] private TextMeshProUGUI toiletteTextQuestGlitch;
@@ -17,16 +18,17 @@ public class QuestManager : MonoBehaviour
     private bool _bRatTrap = true;
     private bool _bToilette = true;
     private bool _bStore = true;
+    private bool _bGuard = true;
     
 
     private const string boolKeyToilette = "Toilette";
     private const string boolKeyStore = "Store";
     private const string boolKeyRatTrap = "RatTrap";
-    
+
     public const string boolEndKeyStore = "EndStore";
     public const string boolEndKeyToilette = "EndToilette";
     public const string boolEndKeyRatTrap = "EndRatTrap";
-    
+
 
     private static bool defaultsInitialized = false;
 
@@ -38,8 +40,7 @@ public class QuestManager : MonoBehaviour
             InitializeDefaults();
             defaultsInitialized = true;
         }
-
-        Debug.Log(LoadBool("EndToilette"));
+        
         if (LoadBool(boolKeyRatTrap))
         {
             ratTextQuestGlitch.text = "Check the bear trap";
@@ -64,6 +65,7 @@ public class QuestManager : MonoBehaviour
         RatTrapQuestCount();
         ToiletteQuestCount();
         StoreQuestCount();
+        GuardQuestCount();
     }
 
     public void RatTrapQuestCount()
@@ -89,6 +91,15 @@ public class QuestManager : MonoBehaviour
             SaveBool(boolKeyToilette, true);
             SaveBool(boolEndKeyToilette, true);
             _bToilette = false;
+        }
+    }
+    
+    public void GuardQuestCount()
+    {
+        if (SecurityGuardQuest.countGuard == 1 && _bGuard)
+        {
+            guardTextQuest.text = "1/1";
+            _bGuard = false;
         }
     }
 
@@ -160,9 +171,7 @@ public class QuestManager : MonoBehaviour
                 _bStore = true;
                 SaveBool(boolEndKeyStore, true);
             }
-            
         }
-        
     }
     
     public static void InitializeDefaults()
@@ -171,7 +180,7 @@ public class QuestManager : MonoBehaviour
         PlayerPrefs.SetInt(boolKeyToilette, 0);
         PlayerPrefs.SetInt(boolKeyStore, 0);
         PlayerPrefs.SetInt(boolKeyRatTrap, 0);
-        
+
         PlayerPrefs.SetInt(boolEndKeyStore, 0);
         PlayerPrefs.SetInt(boolEndKeyToilette, 0);
         PlayerPrefs.SetInt(boolEndKeyRatTrap, 0);

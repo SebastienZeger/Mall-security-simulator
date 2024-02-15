@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecurityGuardQuest : MonoBehaviour
+public class InteractGuard : MonoBehaviour
 {
     [SerializeField] float maxDistance = 2f;
     [SerializeField] GameObject interactionIndicator;
     
-    public static int countGuard;
-    
     private bool interact;
+
     private SecurityGuard _securityGuard;
 
     private void Start()
@@ -30,20 +29,13 @@ public class SecurityGuardQuest : MonoBehaviour
                 interactionIndicator.SetActive(true);
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && !interact)
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 _securityGuard.enabled = true;
-                Count();
                 interactionIndicator.SetActive(false);
                 interact = true;
             }
         }else
             interactionIndicator.SetActive(false);
-    }
-    
-    public static int Count()
-    {
-        countGuard = 1;
-        return countGuard;
     }
 }
