@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 4801640622144813349}
   - component: {fileID: 6919900220846409754}
   - component: {fileID: 2599012126203806132}
+  - component: {fileID: 142056805434625889}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -405,6 +406,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 1
   interactionIndicator: {fileID: 0}
+--- !u!136 &142056805434625889
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502012849469294870}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6361025316038956684
 GameObject:
   m_ObjectHideFlags: 0
