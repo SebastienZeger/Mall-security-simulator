@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorInteraction : MonoBehaviour
+public class NumberDoor : MonoBehaviour
 {
     [SerializeField] int doorID;
     [SerializeField] ChooseDoor ChooseDoor;

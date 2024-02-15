@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float timerDuration = 120f;
+    [SerializeField] float timerDuration = 10f;
     private float timer;
     
     [SerializeField] List<string> resetMessages;
@@ -17,10 +17,16 @@ public class GameManager : MonoBehaviour
 
     private bool _reset = false;
     private bool _sendMessage = true;
+    private bool _ticTac = true;
 
     private VideoManager _videoManager;
     private PlayerMovement _playerMovement;
     private PlayerCam _playerCam;
+    
+    [SerializeField] AudioSource _audioSource;
+
+    [SerializeField] private AudioClip[] _audioClipsListGlitchClips;
+    [SerializeField] private AudioClip[] _audioClipsListVideoClips;
 
     void Start()
     {
@@ -34,10 +40,15 @@ public class GameManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
         
-        if (timer <= 0f || IsGuardInteracted() || IsObjectiveCompleted())
+        if (IsGuardInteracted() || IsObjectiveCompleted())
         {
             ResetLevel();
+        }else if (timer <= 0f && _ticTac)
+        {
+            ResetLevel();
+            
         }
+        
     }
 
     bool IsGuardInteracted()
@@ -62,6 +73,9 @@ public class GameManager : MonoBehaviour
     {
         if (_sendMessage)
         {
+            int indexAleatoire = Random.Range(0, _audioClipsListGlitchClips.Length);
+            _audioSource.clip = _audioClipsListGlitchClips[indexAleatoire];
+            _audioSource.PlayOneShot(_audioSource.clip);
             _playerCam.enabled = false;
             _playerMovement.enabled = false;
             StartCoroutine(ShowRandomResetMessage());
@@ -69,6 +83,10 @@ public class GameManager : MonoBehaviour
         
         if (_reset)
         {
+            _ticTac = false;
+            int indexAleatoire = Random.Range(0, _audioClipsListVideoClips.Length);
+            _audioSource.clip = _audioClipsListVideoClips[indexAleatoire];
+            _audioSource.PlayOneShot(_audioSource.clip);
             _videoScreen.SetActive(true);
             _videoManager.PlayRandomVideo();
             StopCoroutine(ShowRandomResetMessage());

@@ -9,6 +9,7 @@ TagManager:
   - DoorStore
   - PinPadDoor
   - SecurityGuard
+  - Door
   layers:
   - Default
   - TransparentFX
