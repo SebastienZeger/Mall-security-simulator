@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,17 @@ public class StoresQuest : MonoBehaviour
     [SerializeField] float maxDistance = 2f;
     [SerializeField] GameObject interactionIndicator;
     
-    public static int countStore;
+    [SerializeField] private AudioClip _chainDoor;
     
+    private AudioSource _audioSource;
+    
+    public static int countStore;
+
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -24,6 +34,7 @@ public class StoresQuest : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("DoorClosed");
+                _audioSource.PlayOneShot(_chainDoor);
                 hit.collider.enabled = false;
                 Count();
 
