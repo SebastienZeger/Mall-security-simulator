@@ -18,29 +18,32 @@ public class GameManager : MonoBehaviour
     private bool _reset = false;
     private bool _sendMessage = true;
     private bool _ticTac = true;
+    public bool _test = false;
 
     private VideoManager _videoManager;
     private PlayerMovement _playerMovement;
     private PlayerCam _playerCam;
+    private OptionsMenu _optionsMenu;
     
     [SerializeField] AudioSource _audioSource;
-
     [SerializeField] private AudioClip[] _audioClipsListGlitchClips;
     [SerializeField] private AudioClip[] _audioClipsListVideoClips;
 
     void Start()
     {
+        _test = false;
         timer = timerDuration;
         _videoManager = FindObjectOfType<VideoManager>();
         _playerMovement = FindObjectOfType<PlayerMovement>();
         _playerCam = FindObjectOfType<PlayerCam>();
+        _optionsMenu = FindObjectOfType<OptionsMenu>();
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
         
-        if (IsGuardInteracted() || IsObjectiveCompleted())
+        if (IsGuardInteracted() || IsObjectiveCompleted() || OptionsMenu.LoadBool("quitGame") && _test)
         {
             ResetLevel();
         }else if (timer <= 0f && _ticTac)
@@ -69,7 +72,7 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    void ResetLevel()
+    public void ResetLevel()
     {
         if (_sendMessage)
         {
@@ -83,6 +86,7 @@ public class GameManager : MonoBehaviour
         
         if (_reset)
         {
+            _test = false;
             _ticTac = false;
             int indexAleatoire = Random.Range(0, _audioClipsListVideoClips.Length);
             _audioSource.clip = _audioClipsListVideoClips[indexAleatoire];
@@ -90,7 +94,6 @@ public class GameManager : MonoBehaviour
             _videoScreen.SetActive(true);
             _videoManager.PlayRandomVideo();
             StopCoroutine(ShowRandomResetMessage());
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             ResetScore();
             _reset = false;
         }

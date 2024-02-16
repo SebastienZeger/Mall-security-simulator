@@ -11,6 +11,8 @@ public class InteractGuard : MonoBehaviour
 
     private SecurityGuard _securityGuard;
 
+    public Animator AnimatorIA;
+
     private void Start()
     {
         _securityGuard = FindObjectOfType<SecurityGuard>();
@@ -31,6 +33,7 @@ public class InteractGuard : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                AnimatorIA.SetBool("Relieve",true);
                 _securityGuard.enabled = true;
                 interactionIndicator.SetActive(false);
                 interact = true;

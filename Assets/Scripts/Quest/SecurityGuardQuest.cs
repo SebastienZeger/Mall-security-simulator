@@ -11,6 +11,10 @@ public class SecurityGuardQuest : MonoBehaviour
     
     private bool interact;
     private SecurityGuard _securityGuard;
+    
+    public Animator AnimatorIA;
+    
+    public bool _canMove = false;
 
     private void Start()
     {
@@ -32,6 +36,7 @@ public class SecurityGuardQuest : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && !interact)
             {
+                StartCoroutine(Wave());
                 _securityGuard.enabled = true;
                 Count();
                 interactionIndicator.SetActive(false);
@@ -45,5 +50,14 @@ public class SecurityGuardQuest : MonoBehaviour
     {
         countGuard = 1;
         return countGuard;
+    }
+
+    IEnumerator Wave()
+    {
+        AnimatorIA.SetBool("Relieve",true);
+        yield return new WaitForSeconds(2f);
+        AnimatorIA.SetBool("Relieve",false);
+        _canMove = true;
+
     }
 }
