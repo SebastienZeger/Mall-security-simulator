@@ -35,7 +35,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\Mall security simulator.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build2\Mall security simulator.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\moi66\Desktop\Platformer\Mall-security-simulator\Build" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -93,7 +93,7 @@
       <workItem from="1707937682223" duration="15146000" />
       <workItem from="1708022634074" duration="10102000" />
       <workItem from="1708073760039" duration="12421000" />
-      <workItem from="1708092932428" duration="497000" />
+      <workItem from="1708092932428" duration="1096000" />
     </task>
     <servers />
   </component>

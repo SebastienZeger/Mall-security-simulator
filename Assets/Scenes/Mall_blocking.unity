@@ -16639,6 +16639,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19098,6 +19106,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22600,6 +22616,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28983,6 +29007,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29567,6 +29599,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35537,6 +35577,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45213,6 +45261,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48548,6 +48604,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -62365,6 +62429,14 @@ PrefabInstance:
       propertyPath: TpPos
       value: 
       objectReference: {fileID: 421421723}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 225855216}
+    - target: {fileID: 8970380162385565813, guid: 02c336bdfd697a84aa7a59a2144a9d99, type: 3}
+      propertyPath: _badDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f2a2ce1e1b0884e915076e1382e9a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
