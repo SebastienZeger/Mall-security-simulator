@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private float verticalInput;
     private Vector3 moveDirection;
     private Rigidbody rb;
+
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip[] footSteps;
     
     [SerializeField] private Transform orientation;
 
@@ -39,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         State currentState = State._idle;
         rb = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
         rb.freezeRotation = true;
     }
 
@@ -75,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
         
         CheckIsGrounded();
+        
     }
     
     private bool isLanded = false;
@@ -86,7 +92,9 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         if (isGrounded)
         {
+            
             rb.velocity = moveDirection.normalized * walkSpeed * Time.deltaTime;
+            _audioSource.Play();
         }
     }
     
@@ -155,4 +163,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position,radiusSphere);
     }
+    
+    
 }
