@@ -10,6 +10,7 @@ TagManager:
   - PinPadDoor
   - SecurityGuard
   - Door
+  - End
   layers:
   - Default
   - TransparentFX
