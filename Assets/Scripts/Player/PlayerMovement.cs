@@ -42,8 +42,9 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        
         CheckState();
         CheckIsGrounded();
         CheckInput();
@@ -81,11 +82,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        //calculate movement direction
+        
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         if (isGrounded)
         {
-            transform.position += moveDirection.normalized * walkSpeed * Time.deltaTime; 
+            rb.velocity = moveDirection.normalized * walkSpeed * Time.deltaTime;
         }
     }
     

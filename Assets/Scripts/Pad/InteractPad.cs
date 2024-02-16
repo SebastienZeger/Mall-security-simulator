@@ -11,13 +11,15 @@ public class InteractPad : MonoBehaviour
 
     private PlayerMovement _playerMovement;
     private PlayerCam _playerCam;
-
     private bool interact;
+
+    public bool _canOpenOption = true;
 
     private void Start()
     {
         _playerMovement = FindObjectOfType<PlayerMovement>();
         _playerCam = FindObjectOfType<PlayerCam>();
+        _canOpenOption = true;
     }
 
     void Update()
@@ -35,6 +37,7 @@ public class InteractPad : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                _canOpenOption = false;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 pinPad.SetActive(true);
@@ -49,11 +52,22 @@ public class InteractPad : MonoBehaviour
     
     public void GoodPin()
     {
+        _canOpenOption = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pinPad.SetActive(false);
         _playerCam.enabled = true;
         _playerMovement.enabled = true;
         
+    }
+
+    public void ExitPinPad()
+    {
+        _canOpenOption = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        pinPad.SetActive(false);
+        _playerCam.enabled = true;
+        _playerMovement.enabled = true;
     }
 }

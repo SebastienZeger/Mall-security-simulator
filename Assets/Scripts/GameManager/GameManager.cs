@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float timerDuration = 120f;
+    [SerializeField] float timerDuration = 10f;
     private float timer;
     
     [SerializeField] List<string> resetMessages;
@@ -17,27 +17,41 @@ public class GameManager : MonoBehaviour
 
     private bool _reset = false;
     private bool _sendMessage = true;
+    private bool _ticTac = true;
+    public bool _test = false;
 
     private VideoManager _videoManager;
     private PlayerMovement _playerMovement;
     private PlayerCam _playerCam;
+    private OptionsMenu _optionsMenu;
+    
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] private AudioClip[] _audioClipsListGlitchClips;
+    [SerializeField] private AudioClip[] _audioClipsListVideoClips;
 
     void Start()
     {
+        _test = false;
         timer = timerDuration;
         _videoManager = FindObjectOfType<VideoManager>();
         _playerMovement = FindObjectOfType<PlayerMovement>();
         _playerCam = FindObjectOfType<PlayerCam>();
+        _optionsMenu = FindObjectOfType<OptionsMenu>();
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
         
-        if (timer <= 0f || IsGuardInteracted() || IsObjectiveCompleted())
+        if (IsGuardInteracted() || IsObjectiveCompleted() || OptionsMenu.LoadBool("quitGame") && _test)
         {
             ResetLevel();
+        }else if (timer <= 0f && _ticTac)
+        {
+            ResetLevel();
+            
         }
+        
     }
 
     bool IsGuardInteracted()
@@ -58,10 +72,13 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    void ResetLevel()
+    public void ResetLevel()
     {
         if (_sendMessage)
         {
+            int indexAleatoire = Random.Range(0, _audioClipsListGlitchClips.Length);
+            _audioSource.clip = _audioClipsListGlitchClips[indexAleatoire];
+            _audioSource.PlayOneShot(_audioSource.clip);
             _playerCam.enabled = false;
             _playerMovement.enabled = false;
             StartCoroutine(ShowRandomResetMessage());
@@ -69,10 +86,14 @@ public class GameManager : MonoBehaviour
         
         if (_reset)
         {
+            _test = false;
+            _ticTac = false;
+            int indexAleatoire = Random.Range(0, _audioClipsListVideoClips.Length);
+            _audioSource.clip = _audioClipsListVideoClips[indexAleatoire];
+            _audioSource.PlayOneShot(_audioSource.clip);
             _videoScreen.SetActive(true);
             _videoManager.PlayRandomVideo();
             StopCoroutine(ShowRandomResetMessage());
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             ResetScore();
             _reset = false;
         }
