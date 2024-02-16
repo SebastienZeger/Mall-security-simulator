@@ -8878,7 +8878,7 @@ Transform:
   m_GameObject: {fileID: 1605038832}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.57, y: 1.511, z: -26.49}
+  m_LocalPosition: {x: -6.57, y: 1.46, z: -26.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8900,7 +8900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e96ac603baf644408dc60be3d49c338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  walkSpeed: 500
   radiusSphere: 0.5
   groundLayer:
     serializedVersion: 2
