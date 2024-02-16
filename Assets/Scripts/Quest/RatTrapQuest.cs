@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RatTrapQuest : MonoBehaviour
@@ -6,7 +7,14 @@ public class RatTrapQuest : MonoBehaviour
     [SerializeField] GameObject interactionIndicator;
 
     public static int countRatTrap;
-    
+
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _ratClip;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -20,6 +28,7 @@ public class RatTrapQuest : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                _audioSource.PlayOneShot(_ratClip);
                 Debug.Log("Rat");
                 hit.collider.enabled = false;
                 Count();

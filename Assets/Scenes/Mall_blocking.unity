@@ -41153,9 +41153,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3623878800221135986, guid: 3444c3ce1bfeb244ebab8c2f0526feba, type: 3}
+      propertyPath: _lightClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a19686c1db89b346bf90507f76f9d89, type: 3}
+    - target: {fileID: 3623878800221135986, guid: 3444c3ce1bfeb244ebab8c2f0526feba, type: 3}
       propertyPath: _torchLight
       value: 
       objectReference: {fileID: 79801970}
+    - target: {fileID: 4801640622144813349, guid: 3444c3ce1bfeb244ebab8c2f0526feba, type: 3}
+      propertyPath: _ratClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c098b36f9579c74b9d7d6fd65bc2f42, type: 3}
     - target: {fileID: 4801640622144813349, guid: 3444c3ce1bfeb244ebab8c2f0526feba, type: 3}
       propertyPath: interactionIndicator
       value: 
