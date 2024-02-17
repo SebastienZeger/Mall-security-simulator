@@ -11,6 +11,8 @@ public class VideoManager : MonoBehaviour
     private PlayerMovement _playerMovement;
     private PlayerCam _playerCam;
 
+    public bool _videoPlaying = false;
+
     void Start()
     {
         
@@ -24,6 +26,7 @@ public class VideoManager : MonoBehaviour
 
     public void PlayRandomVideo()
     {
+        _videoPlaying = true;
         int randomIndex = Random.Range(0, videoClips.Length);
         videoPlayer.clip = videoClips[randomIndex]; 
         videoPlayer.Play();
@@ -31,6 +34,7 @@ public class VideoManager : MonoBehaviour
 
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
+        _videoPlaying = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         _gameManager._videoScreen.SetActive(false);
         _playerCam.enabled = true;

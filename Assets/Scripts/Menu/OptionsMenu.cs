@@ -20,6 +20,7 @@ public class OptionsMenu : MonoBehaviour
     private PlayerCam _playerCam;
     private GameManager _gameManager;
     private InteractPad _interactPad;
+    private VideoManager _videoManager;
     
     public bool _quitGame;
     
@@ -41,6 +42,7 @@ public class OptionsMenu : MonoBehaviour
         _playerCam = FindObjectOfType<PlayerCam>();
         _gameManager = FindObjectOfType<GameManager>();
         _interactPad = FindObjectOfType<InteractPad>();
+        _videoManager = FindObjectOfType<VideoManager>();
         
         if (LoadBool(boolQuitGame))
         {
@@ -50,7 +52,7 @@ public class OptionsMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && _interactPad._canOpenOption)
+        if (Input.GetKeyDown(KeyCode.Escape) && _interactPad._canOpenOption && !_videoManager._videoPlaying)
         {
             _optionPanel.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
